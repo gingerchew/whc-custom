@@ -1,4 +1,4 @@
-// Variables
+/* Variables */
 const Time = Math.floor(Date.now() / 1000);
 const Form = document.querySelector(document.currentScript.getAttribute('formid'));
 const FormButton = Form.querySelector("button");
@@ -109,7 +109,7 @@ worker.addEventListener("message", function (e) {
         Form.appendChild(verificationInput(verification));
         document.querySelector("#_branding").remove();
         FormButton.classList.add("verified");
-
+        console.log(message);
         var buttonText = FormButton.getAttribute("text");
         var verifiedText = FormButton.getAttribute('verified');
 
