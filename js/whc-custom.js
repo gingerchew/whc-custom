@@ -126,7 +126,7 @@ worker.addEventListener("message", function (e) {
         return
 
     } else {
-        console.log('verifying -> percent done: ' + message.match(/(?<=value=")\d*(?=")/gi));
+        /* console.log('verifying -> percent done: ' + message.match(/(?<=value=")\d*(?=")/gi)); */
         return
     }
 
