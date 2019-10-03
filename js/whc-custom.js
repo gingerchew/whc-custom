@@ -44,7 +44,7 @@ const getQuestion = () => {
 
         console.log('skipped verification');
 
-        return
+        return;
     }
     var difficulty = FormButton.getAttribute("difficulty");
     if (difficulty === null || difficulty === "") {
@@ -54,15 +54,12 @@ const getQuestion = () => {
         "endpoint": "question"
     })
         .then(function (data) {
-
             worker.postMessage({
                 "question": data.data.question,
                 "Time": Time,
                 "difficulty": difficulty
             });
-
             FormButton.disabled = true;
-
         })
 }
 
@@ -109,7 +106,7 @@ worker.addEventListener("message", function (e) {
         Form.appendChild(verificationInput(verification));
         document.querySelector("#_branding").remove();
         FormButton.classList.add("verified");
-        console.log(message);
+
         var buttonText = FormButton.getAttribute("text");
         var verifiedText = FormButton.getAttribute('verified');
 
@@ -121,13 +118,17 @@ worker.addEventListener("message", function (e) {
 
         FormButton.disabled = false;
 
-        sessionStorage.setItem('verified', true)
+        sessionStorage.setItem('verified', true);
 
-        return
+        return;
 
     } else {
-        /* console.log('verifying -> percent done: ' + message.match(/(?<=value=")\d*(?=")/gi)); */
-        return
+        const percent = message.match(/(?:\d+)/gi);
+        if (percent !== null) {
+            console.log(percent);
+            return
+        }
+        return;
     }
 
 }, false);
