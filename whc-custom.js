@@ -94,7 +94,7 @@ const sendRequest = async (url, parameters) => {
 };
 
 // Load in web worker
-const worker = createWorker("https://wehatecaptchas.com/load.php?name=captcha-worker.js");
+const worker = createWorker("https://wehatecaptchas.com/captcha-worker.js");
 
 Form.insertAdjacentHTML("beforeend", (`
     <a href="https://wehatecaptchas.com" target="_blank" rel="noreferrer" id="_branding">we<b>hate</b>captchas</a>
